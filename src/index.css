@@ -1,13 +1,250 @@
-body {
+:root {
+  --lh-10: 1.3;
+  --mb-10: 1em;
+  --fs-50: 0.85rem; /*13.6px*/
+  --fs-100: 1rem; /*16px*/
+  --fs-150: 1.1rem; /*18.4px*/
+  --fs-200: 1.15rem; /*20px*/
+  --fs-300: 1.1rem; /*24px*/
+  --fs-400: 1.65rem; /*28px*/
+  --fs-500: 2rem; /*32px*/
+  --fs-550: 2.25rem; /*36px*/
+  --fs-600: 2.5rem; /*40px*/
+  --fs-700: 3rem; /*48px*/
+  --fs-800: 4rem; /*64px*/
+  --fs-900: 8rem; /*128px*/
+  --ff-main: "Roboto", sans-serif;
+  --clr-side-white: #fff;
+  --clr-side-black: #222;
+  --clr-primary-white: #fefefe;
+  --clr-primary-black: #100f11;
+  --clr-primary-purple: #7269f6;
+  --clr-primary-yellow: #f9f871;
+  --clr-primary-gray: #ada9bb;
+  --clr-primary-pink: #efc2b3;
+}
+
+@media (max-width: 40em) {
+  :root {
+    --lh-10: 1.2;
+    --mb-10: 0.75em;
+    --fs-50: 0.75rem; /*13.6px*/
+    --fs-100: 1rem; /*16px*/
+    --fs-150: 1.05rem; /*18.4px*/
+    --fs-200: 1.15rem; /*19.2px*/
+    --fs-300: 1.1rem; /*20px*/
+    --fs-400: 1.6rem; /*24px*/
+    --fs-500: 1.75rem; /*28px*/
+    --fs-550: 1.9rem; /*30.4px*/
+    --fs-600: 2.1rem; /*33.6px*/
+    --fs-700: 2.25rem; /*36px*/
+    --fs-800: 3rem; /*48px*/
+    --fs-900: 4rem; /*64px*/
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+nav {
+  width: 100%;
+  z-index: 1000;
+}
+
+body {
+  font-family: var(--ff-main);
+  color: var(--clr-side-black);
+  background-color: var(--clr-side-white);
+  line-height: var(--lh-10);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.stick {
+  flex: 1;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.grid {
+  display: grid;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.text-hollow {
+  color: inherit;
+  text-shadow: 1px 1px black, -1px 1px black, 1px -1px black, -1px -1px black;
+}
+
+.btn {
+  padding: 0.5em 1em;
+  cursor: pointer;
+  background-color: var(--clr-side-black);
+  color: var(--clr-side-white);
+}
+
+/*============= 
+    Typography 
+===============*/
+
+ul,
+li,
+a {
+  text-decoration: none;
+  list-style: none;
+  color: var(--clr-primary-black);
+}
+
+.fs-50 {
+  font-size: var(--fs-50);
+} /*13.6px*/
+.fs-100 {
+  font-size: var(--fs-100);
+} /*16px*/
+.fs-150 {
+  font-size: var(--fs-150);
+} /*18.4px*/
+.fs-200 {
+  font-size: var(--fs-200);
+} /*20px*/
+.fs-300 {
+  font-size: var(--fs-300);
+} /*24px*/
+.fs-400 {
+  font-size: var(--fs-400);
+} /*28px*/
+.fs-500 {
+  font-size: var(--fs-500);
+} /*32px*/
+.fs-550 {
+  font-size: var(--fs-550);
+} /*36px*/
+.fs-600 {
+  font-size: var(--fs-600);
+} /*40px*/
+.fs-700 {
+  font-size: var(--fs-700);
+} /*48px*/
+.fs-800 {
+  font-size: var(--fs-800);
+} /*64px*/
+.fs-900 {
+  font-size: var(--fs-900);
+} /*128px*/
+
+/*============= 
+    Navbar 
+===============*/
+
+/*============= 
+    Body
+===============*/
+
+.section-container {
+  margin: 0 auto;
+  width: min(90%, 75rem);
+  padding: 2.5rem 0;
+}
+
+.section-margin {
+  margin-bottom: 5rem;
+}
+
+.card-main {
+  min-height: 30rem;
+  background-color: #efc2b3;
+}
+
+.card-current {
+  grid-template-columns: 40% 60%;
+}
+
+/*============= 
+    Footer 
+===============*/
+
+.footer-container {
+  margin: 0 auto;
+  width: 100%;
+  padding: 1rem 0;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--clr-primary-gray);
+  gap: 0.25rem;
+}
+
+.logo-small {
+  width: 2.25rem;
+}
+
+.footer-text {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/*============= 
+   Media Queries 
+===============*/
+
+@media (min-width: 40em) {
+  .none {
+    display: none;
+  }
+}
+
+@media (max-width: 40em) {
+  .none-mobil {
+    display: none;
+  }
 }
