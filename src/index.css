@@ -186,13 +186,75 @@ a {
     Navbar 
 ===============*/
 
+.search-container {
+  margin: 5rem auto 2rem;
+}
+
+.search-bar {
+  width: 35rem;
+  height: 2.75rem;
+  border: 1px solid black;
+  border-radius: 23px;
+  padding: 0.25rem 1rem 0.25rem 2.5rem;
+}
+
+.search-bar-active {
+  width: 35rem;
+  height: 2.75rem;
+  border: 1px solid black;
+  border-top-left-radius: 23px;
+  border-top-right-radius: 23px;
+  border-bottom: none;
+  padding: 0.25rem 1rem 0 2.5rem;
+}
+
+.search-bar:focus {
+  outline: none;
+}
+
+.search-bar-active:focus {
+  outline: none;
+}
+
+.fa-lg {
+  top: 14px;
+  left: 10px;
+}
+
+.result-container {
+  border: 1px solid black;
+  padding-top: 0.25rem;
+  border-radius: 0 0 10px 10px;
+  position: absolute;
+  background-color: white;
+  width: 100%;
+}
+
+.result-container ul {
+  padding: 0.5rem 0;
+}
+
+.result-container li {
+  padding: 0.4rem 2.1rem;
+  cursor: pointer;
+}
+
+.result-container li:hover {
+  background-color: rgba(0, 0, 0, 0.13);
+}
+
+.result-container li:focus {
+  background-color: rgba(0, 0, 0, 0.13);
+  outline: none;
+}
+
 /*============= 
     Body
 ===============*/
 
 .section-container {
   margin: 0 auto;
-  width: min(90%, 75rem);
+  width: min(90%, 50rem);
   padding: 2.5rem 0;
 }
 

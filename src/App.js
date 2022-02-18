@@ -13,13 +13,9 @@ function App() {
     fetchData(setData, setLoading, city);
   }, [city]);
 
-  const handleQuery = (element) => {
-    setCity(element);
-  };
-
   return (
     <>
-      <SearchBar handleQuery={handleQuery} />
+      <SearchBar setCity={setCity} />
       <WeatherCard data={data} loading={loading} />
       <Footer />
     </>
