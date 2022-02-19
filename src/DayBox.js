@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 function DayBox({ day, data }) {
   const months = {
     0: "January",
