@@ -4,12 +4,12 @@ function HourBox({ time, temp, image }) {
   let hour = time.slice(11, 13);
 
   return (
-    <div>
-      <div>{hour}</div>
-      <div>
+    <div className="item">
+      <div>{temp}</div>
+      <div className="small-icon">
         <img src={image} alt="Weather Icon" />
       </div>
-      <div>{temp}</div>
+      <div>{hour}:00</div>
     </div>
   );
 }

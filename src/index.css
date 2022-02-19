@@ -1,22 +1,23 @@
 :root {
   --lh-10: 1.3;
   --mb-10: 1em;
-  --fs-50: 0.85rem; /*13.6px*/
+  --fs-50: 0.95rem; /*13.6px*/
   --fs-100: 1rem; /*16px*/
   --fs-150: 1.1rem; /*18.4px*/
-  --fs-200: 1.15rem; /*20px*/
-  --fs-300: 1.1rem; /*24px*/
+  --fs-200: 1.35rem; /*20px*/
+  --fs-300: 1.55rem; /*24px*/
   --fs-400: 1.65rem; /*28px*/
   --fs-500: 2rem; /*32px*/
   --fs-550: 2.25rem; /*36px*/
   --fs-600: 2.5rem; /*40px*/
   --fs-700: 3rem; /*48px*/
   --fs-800: 4rem; /*64px*/
-  --fs-900: 8rem; /*128px*/
-  --ff-main: "Roboto", sans-serif;
+  --fs-900: 4rem; /*128px*/
+  --ff-main: "Oswald", sans-serif;
   --clr-side-white: #fff;
   --clr-side-black: #222;
   --clr-primary-white: #fefefe;
+  --clr-moon: #ece9ce;
   --clr-primary-black: #100f11;
   --clr-primary-purple: #7269f6;
   --clr-primary-yellow: #f9f871;
@@ -28,11 +29,11 @@
   :root {
     --lh-10: 1.2;
     --mb-10: 0.75em;
-    --fs-50: 0.75rem; /*13.6px*/
+    --fs-50: 0.85rem; /*13.6px*/
     --fs-100: 1rem; /*16px*/
     --fs-150: 1.05rem; /*18.4px*/
     --fs-200: 1.15rem; /*19.2px*/
-    --fs-300: 1.1rem; /*20px*/
+    --fs-300: 1.3rem; /*20px*/
     --fs-400: 1.6rem; /*24px*/
     --fs-500: 1.75rem; /*28px*/
     --fs-550: 1.9rem; /*30.4px*/
@@ -54,6 +55,7 @@
 html,
 body {
   height: 100%;
+  overflow-x: hidden;
 }
 
 html {
@@ -121,9 +123,8 @@ img {
   position: absolute;
 }
 
-.text-hollow {
-  color: inherit;
-  text-shadow: 1px 1px black, -1px 1px black, 1px -1px black, -1px -1px black;
+.white {
+  color: var(--clr-moon);
 }
 
 .btn {
@@ -188,10 +189,11 @@ a {
 
 .search-container {
   margin: 5rem auto 2rem;
+  width: min(30rem, 90%);
 }
 
 .search-bar {
-  width: 35rem;
+  width: 100%;
   height: 2.75rem;
   border: 1px solid black;
   border-radius: 23px;
@@ -199,7 +201,7 @@ a {
 }
 
 .search-bar-active {
-  width: 35rem;
+  width: 100%;
   height: 2.75rem;
   border: 1px solid black;
   border-top-left-radius: 23px;
@@ -228,6 +230,7 @@ a {
   position: absolute;
   background-color: white;
   width: 100%;
+  z-index: 10;
 }
 
 .result-container ul {
@@ -254,7 +257,7 @@ a {
 
 .section-container {
   margin: 0 auto;
-  width: min(90%, 50rem);
+  width: min(90%, 45rem);
   padding: 2.5rem 0;
 }
 
@@ -263,12 +266,143 @@ a {
 }
 
 .card-main {
-  min-height: 30rem;
-  background-color: #efc2b3;
+  box-shadow: rgba(247, 242, 242, 0.5) 0px 5px 15px;
+  border-radius: 15px;
+}
+
+.card-upper {
+  border-radius: 15px 15px 0 0;
+  background-color: var(--clr-primary-purple);
+  display: grid;
+  place-content: center;
+}
+
+.card-name {
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.name-line {
+  width: 3rem;
+  height: 3px;
+  background-color: white;
+  position: absolute;
+  bottom: 1.5rem;
+  border-radius: 50px;
+  right: calc(50% - 1.5rem);
 }
 
 .card-current {
-  grid-template-columns: 40% 60%;
+  place-items: center;
+}
+
+.degree {
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 3px solid var(--clr-moon);
+  top: 0;
+}
+
+.current-weather img {
+  width: 5rem;
+}
+
+.current-info {
+  padding: 0.5rem 1.5rem 1.5rem;
+}
+
+.current-info > div {
+  display: grid;
+  gap: 0.25rem;
+  place-items: center;
+}
+
+.current-info > div + div {
+  border-left: 2px solid var(--clr-moon);
+  padding-left: 1rem;
+  margin-left: 1rem;
+}
+
+.card-bottom {
+  background-color: white;
+  padding: 2rem 1rem 3rem;
+  border-radius: 0 0 15px 15px;
+}
+
+.card-forecast {
+  display: grid;
+  place-items: center;
+  gap: 1.5rem;
+}
+
+.forecast-container {
+  gap: 1rem;
+}
+
+.forecast-icon {
+  width: 2rem;
+  margin: 0 auto;
+}
+
+.astro-container {
+  place-items: center;
+  gap: 1rem;
+}
+
+.astro-info div + div {
+  border-left: 2px solid black;
+  padding-left: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+/* Slider */
+
+.slider-container {
+  background-color: white;
+}
+
+.slider {
+  width: 100%;
+  overflow: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 2rem 0.25rem 0;
+}
+
+.slider::-webkit-scrollbar {
+  display: none;
+}
+
+.slider-inner {
+  display: grid;
+  height: 100%;
+  width: 200%;
+  user-select: none;
+}
+
+.item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  font-size: 0.9rem;
+}
+
+.item::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
+}
+
+.small-icon {
+  width: 2.5rem;
 }
 
 /*============= 
@@ -277,12 +411,9 @@ a {
 
 .footer-container {
   margin: 0 auto;
-  width: 100%;
   padding: 1rem 0;
   justify-content: center;
   align-items: center;
-  background-color: var(--clr-primary-gray);
-  gap: 0.25rem;
 }
 
 .logo-small {
@@ -292,7 +423,130 @@ a {
 .footer-text {
   display: flex;
   align-items: center;
+  color: var(--clr-moon);
   gap: 0.25rem;
+}
+
+/*============= 
+   Background
+===============*/
+
+/* Sky */
+
+@keyframes move-twink-back {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -10000px 5000px;
+  }
+}
+
+@keyframes move-clouds-back {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 10000px 0;
+  }
+}
+
+.stars,
+.twinkling,
+.clouds {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.stars {
+  background: #000 url(./img/stars.png) repeat top center;
+  z-index: -10;
+}
+
+.twinkling {
+  background: transparent url(./img/twinkling.png) repeat top center;
+  z-index: -5;
+  animation: move-twink-back 200s linear infinite;
+}
+
+.clouds {
+  background: transparent url(./img/clouds.png) repeat top center;
+  z-index: -3;
+  opacity: 0.4;
+  animation: move-clouds-back 200s linear infinite;
+}
+
+/* Sun */
+
+.sun {
+  width: 100px;
+  height: 100px;
+  background-color: #ffde00;
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  z-index: -1;
+  border-radius: 50%;
+  box-shadow: 0 0 0 20px #ffde0080, 0 0 0 40px #ffde0040, 0 0 0 60px #ffde0020,
+    0 0 0 80px #ffde0010, 0 0 0 100px #ffde0000, 0 0 40px 100px #ffde0010;
+  animation: sunrise 2s infinite linear forwards, rays 2s 2s infinite linear;
+}
+
+@keyframes sunrise {
+  0% {
+    box-shadow: none;
+  }
+}
+
+@keyframes rays {
+  0% {
+    box-shadow: 0 0 0 0 #ffde0080, 0 0 0 20px #ffde0080, 0 0 0 40px #ffde0040,
+      0 0 0 60px #ffde0020, 0 0 0 80px #ffde0010, 0 0 40px 100px #ffde0010;
+  }
+  100% {
+    box-shadow: 0 0 0 20px #ffde0080, 0 0 0 40px #ffde0040, 0 0 0 60px #ffde0020,
+      0 0 0 80px #ffde0010, 0 0 0 100px #ffde0000, 0 0 40px 100px #ffde0010;
+  }
+}
+
+/* moon */
+
+.moon {
+  width: 100px;
+  height: 100px;
+  background-color: #ece9ce;
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  z-index: -1;
+  border-radius: 50%;
+  box-shadow: 0 0 0 20px #ece9ce80, 0 0 0 40px #ece9ce40, 0 0 0 60px #ece9ce20,
+    0 0 0 80px #ece9ce10, 0 0 0 100px #ece9ce00, 0 0 40px 100px #ece9ce10;
+  animation: moonrise 2s infinite linear forwards,
+    moon-rays 2s 2s infinite linear;
+}
+
+@keyframes moonrise {
+  0% {
+    box-shadow: none;
+  }
+}
+
+@keyframes moon-rays {
+  0% {
+    box-shadow: 0 0 0 0 #ece9ce80, 0 0 0 20px #ece9ce80, 0 0 0 40px #ece9ce40,
+      0 0 0 60px #ece9ce20, 0 0 0 80px #ece9ce10, 0 0 40px 100px #ece9ce10;
+  }
+  100% {
+    box-shadow: 0 0 0 20px #ece9ce80, 0 0 0 40px #ece9ce40, 0 0 0 60px #ece9ce20,
+      0 0 0 80px #ece9ce10, 0 0 0 100px #ece9ce00, 0 0 40px 100px #ece9ce10;
+  }
 }
 
 /*============= 
@@ -303,10 +557,58 @@ a {
   .none {
     display: none;
   }
+
+  .city-img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 28rem;
+  }
+
+  .card-upper {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 1rem 4rem 0 2rem;
+    justify-content: space-between;
+  }
+
+  .card-forecast {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .slider-inner {
+    width: 150%;
+  }
 }
 
 @media (max-width: 40em) {
   .none-mobil {
     display: none;
+  }
+
+  .sun {
+    top: 0%;
+    left: 0%;
+  }
+  .moon {
+    top: 0%;
+    right: 0%;
+  }
+
+  .slider-inner {
+    gap: 0.25rem;
+  }
+
+  .item {
+    font-size: 0.75rem;
+  }
+
+  .item::before {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .small-icon {
+    width: 2rem;
   }
 }

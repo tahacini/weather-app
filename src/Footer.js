@@ -2,7 +2,7 @@ import logo from "./img/logo.png";
 
 function Footer() {
   return (
-    <footer className="footer-container flex text-shadow fs-100">
+    <footer className="footer-container flex fs-100">
       <div className="footer-text">
         <div>Designed & Built by Taha Cini </div>
         <div className="logo-small">

@@ -22,15 +22,14 @@ function DayBox({ day, data }) {
 
   return (
     <div>
-      <div>
-        {date}
-        {months[month]}
+      <div className="fs-50">
+        {date} {months[month]}
       </div>
-      <div>
+      <div className="forecast-icon">
         <img src={data.condition.icon} alt="Weather Icon" />
       </div>
-      <div>
-        {data.maxtemp_c}/{data.mintemp_c}
+      <div className="fs-50 center-text">
+        {data.maxtemp_c} / {data.mintemp_c}
       </div>
     </div>
   );

@@ -7,16 +7,20 @@ function WeatherCard({ data, loading }) {
   return (
     <section className="stick section-container">
       {loading ? (
-        <div className="card-main grid">
+        <div className="card-main">
           <Current current={data.current} location={data.location} />
-          <Hours
-            hours={data.forecast.forecastday[0].hour}
-            tomorrow={data.forecast.forecastday[1].hour}
-            time={data.location.localtime_epoch}
-          />
-          <div className="flex">
-            <Days days={data.forecast.forecastday} />
-            <Astro data={data.forecast.forecastday[0].astro} />
+          <div className="slider-container">
+            <Hours
+              hours={data.forecast.forecastday[0].hour}
+              tomorrow={data.forecast.forecastday[1].hour.slice(0, 13)}
+              time={data.location.localtime_epoch}
+            />
+          </div>
+          <div className="card-bottom">
+            <div className="card-forecast">
+              <Days days={data.forecast.forecastday} />
+              <Astro data={data.forecast.forecastday[0].astro} />
+            </div>
           </div>
         </div>
       ) : (

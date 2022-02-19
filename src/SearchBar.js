@@ -3,7 +3,7 @@ import { searchData } from "./Api/Api.js";
 
 function SearchBar({ setCity }) {
   const [query, setQuery] = useState("");
-  const [data, setdata] = useState([]);
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const resultsRef = useRef();
   const inputRef = useRef();
@@ -11,7 +11,7 @@ function SearchBar({ setCity }) {
   useEffect(() => {
     const timeout = setTimeout(() => {
       if (query) {
-        searchData(setdata, setLoading, query);
+        searchData(setData, setLoading, query);
       }
     }, 500);
     return () => clearTimeout(timeout);
@@ -21,9 +21,10 @@ function SearchBar({ setCity }) {
     setCity(element);
     setQuery("");
     setLoading(false);
+    setData([]);
   };
 
-  // close results when clicked outside
+  // Close results when clicked outside
 
   useEffect(() => {
     window.addEventListener("click", onClickOutSide);
@@ -45,23 +46,22 @@ function SearchBar({ setCity }) {
 
   useEffect(() => {
     const inputIsFocused = document.activeElement === inputRef.current;
-    if (inputIsFocused && data.length > 0) {
-      document.body.addEventListener("keydown", onKeyDown);
+    if (inputIsFocused && data.length > 0 && query.length > 0) {
+      document.addEventListener("keydown", onKeyDown);
     } else {
-      document.body.removeEventListener("keydown", onKeyDown);
+      document.removeEventListener("keydown", onKeyDown);
     }
     return () => {
-      document.body.removeEventListener("keydown", onKeyDown);
+      document.removeEventListener("keydown", onKeyDown);
     };
-  }, [loading]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [loading, query]); // eslint-disable-line react-hooks/exhaustive-deps
 
   function onKeyDown(event) {
     const isUp = event.key === "ArrowUp";
     const isDown = event.key === "ArrowDown";
+
     const inputIsFocused = document.activeElement === inputRef.current;
-
     const resultsItems = Array.from(resultsRef.current.children);
-
     const activeResultIndex = resultsItems.findIndex((child) => {
       return child === document.activeElement;
     });
@@ -86,6 +86,8 @@ function SearchBar({ setCity }) {
       }
     }
   }
+
+  // Query on focused item with enter
 
   const handleEnter = (event, item) => {
     if (event.keyCode === 13) {
@@ -120,7 +122,7 @@ function SearchBar({ setCity }) {
                 onClick={() => handleQuery(item.url)}
                 onKeyUp={(e) => handleEnter(e, item.url)}
               >
-                {item.name} / {item.url}
+                {item.name}, {item.region}, {item.country}
               </li>
             ))}
           </ul>

@@ -3,6 +3,7 @@ import { fetchData } from "./Api/Api.js";
 import Footer from "./Footer";
 import WeatherCard from "./WeatherCard";
 import SearchBar from "./SearchBar";
+import Background from "./Background.js";
 
 function App() {
   const [data, setData] = useState({});
@@ -15,6 +16,7 @@ function App() {
 
   return (
     <>
+      <Background />
       <SearchBar setCity={setCity} />
       <WeatherCard data={data} loading={loading} />
       <Footer />
