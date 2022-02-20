@@ -110,6 +110,7 @@ function SearchBar({ setCity }) {
           }
           value={query}
           onChange={(event) => setQuery(event.target.value)}
+          onKeyUp={(e) => handleEnter(e, e.target.value)}
         />
       </div>
       {loading && query ? (

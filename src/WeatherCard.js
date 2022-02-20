@@ -6,7 +6,7 @@ import Astro from "./Astro.js";
 function WeatherCard({ data, loading }) {
   return (
     <section className="stick section-container">
-      {loading ? (
+      {loading && data.current ? (
         <div className="card-main">
           <Current current={data.current} location={data.location} />
           <div className="slider-container">
@@ -24,7 +24,7 @@ function WeatherCard({ data, loading }) {
           </div>
         </div>
       ) : (
-        <></>
+        <div className="lost">Are you lost in space?</div>
       )}
     </section>
   );
