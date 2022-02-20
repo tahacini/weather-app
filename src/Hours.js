@@ -11,19 +11,13 @@ function Hours({ hours, time, tomorrow }) {
   const getHour = () => {
     const epoch = new Date(time * 1000);
     const currTime = epoch.getHours();
-    console.log(currTime);
 
     setcurrHours(hours.slice(currTime).concat(tomorrow));
   };
 
   if (currHours.length > 0) {
     const slider = document.querySelector(".slider-inner");
-
     let sliderGrabbed = false;
-
-    slider.addEventListener("mouseenter", () => {
-      slider.style.cursor = "grab";
-    });
 
     slider.addEventListener("mousedown", () => {
       sliderGrabbed = true;

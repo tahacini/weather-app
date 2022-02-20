@@ -12,7 +12,7 @@ function WeatherCard({ data, loading }) {
           <div className="slider-container">
             <Hours
               hours={data.forecast.forecastday[0].hour}
-              tomorrow={data.forecast.forecastday[1].hour.slice(0, 13)}
+              tomorrow={data.forecast.forecastday[1].hour.slice(0, 19)}
               time={data.location.localtime_epoch}
             />
           </div>

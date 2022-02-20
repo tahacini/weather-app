@@ -62,15 +62,10 @@ html {
   scroll-behavior: smooth;
 }
 
-nav {
-  width: 100%;
-  z-index: 1000;
-}
-
 body {
   font-family: var(--ff-main);
   color: var(--clr-side-black);
-  background-color: var(--clr-side-white);
+  background-color: black;
   line-height: var(--lh-10);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -95,14 +90,6 @@ img {
   display: flex;
 }
 
-.flex-wrap {
-  flex-wrap: wrap;
-}
-
-.column {
-  flex-direction: column;
-}
-
 .grid {
   display: grid;
 }
@@ -125,13 +112,6 @@ img {
 
 .white {
   color: var(--clr-moon);
-}
-
-.btn {
-  padding: 0.5em 1em;
-  cursor: pointer;
-  background-color: var(--clr-side-black);
-  color: var(--clr-side-white);
 }
 
 /*============= 
@@ -188,7 +168,7 @@ a {
 ===============*/
 
 .search-container {
-  margin: 5rem auto 2rem;
+  margin: 3rem auto 2rem;
   width: min(30rem, 90%);
 }
 
@@ -258,7 +238,7 @@ a {
 .section-container {
   margin: 0 auto;
   width: min(90%, 45rem);
-  padding: 2.5rem 0;
+  padding: 1rem 0;
 }
 
 .section-margin {
@@ -272,9 +252,12 @@ a {
 
 .card-upper {
   border-radius: 15px 15px 0 0;
-  background-color: var(--clr-primary-purple);
+  background-color: #21d4fd;
+  background-image: linear-gradient(242deg, #21d4fd, #b721ff);
   display: grid;
   place-content: center;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
 .card-name {
@@ -298,12 +281,12 @@ a {
 
 .degree {
   position: absolute;
-  width: 1rem;
-  height: 1rem;
+  width: 0.85rem;
+  height: 0.85rem;
   background-color: transparent;
   border-radius: 50%;
   border: 3px solid var(--clr-moon);
-  top: 0;
+  top: 15px;
 }
 
 .current-weather img {
@@ -311,7 +294,7 @@ a {
 }
 
 .current-info {
-  padding: 0.5rem 1.5rem 1.5rem;
+  padding: 0.5rem 1.5rem 0.5rem;
 }
 
 .current-info > div {
@@ -328,7 +311,7 @@ a {
 
 .card-bottom {
   background-color: white;
-  padding: 2rem 1rem 3rem;
+  padding: 2rem 1rem 2rem;
   border-radius: 0 0 15px 15px;
 }
 
@@ -370,6 +353,7 @@ a {
   scrollbar-width: none;
   -ms-overflow-style: none;
   padding: 2rem 0.25rem 0;
+  cursor: grab;
 }
 
 .slider::-webkit-scrollbar {
@@ -412,8 +396,8 @@ a {
 .footer-container {
   margin: 0 auto;
   padding: 1rem 0;
-  justify-content: center;
   align-items: center;
+  gap: 1rem;
 }
 
 .logo-small {
@@ -423,8 +407,11 @@ a {
 .footer-text {
   display: flex;
   align-items: center;
-  color: var(--clr-moon);
   gap: 0.25rem;
+}
+
+.api-icon {
+  width: 4rem;
 }
 
 /*============= 
@@ -452,9 +439,8 @@ a {
 }
 
 .stars,
-.twinkling,
-.clouds {
-  position: absolute;
+.twinkling {
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -473,13 +459,6 @@ a {
   background: transparent url(./img/twinkling.png) repeat top center;
   z-index: -5;
   animation: move-twink-back 200s linear infinite;
-}
-
-.clouds {
-  background: transparent url(./img/clouds.png) repeat top center;
-  z-index: -3;
-  opacity: 0.4;
-  animation: move-clouds-back 200s linear infinite;
 }
 
 /* Sun */
@@ -578,6 +557,24 @@ a {
 
   .slider-inner {
     width: 150%;
+  }
+
+  .clouds {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .clouds {
+    background: transparent url(./img/clouds.png) repeat top center;
+    z-index: -3;
+    opacity: 0.6;
+    animation: move-clouds-back 200s linear infinite;
   }
 }
 

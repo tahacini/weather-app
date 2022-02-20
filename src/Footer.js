@@ -2,7 +2,7 @@ import logo from "./img/logo.png";
 
 function Footer() {
   return (
-    <footer className="footer-container flex fs-100">
+    <footer className="footer-container flex fs-100 white">
       <div className="footer-text">
         <div>Designed & Built by Taha Cini </div>
         <div className="logo-small">
@@ -14,6 +14,14 @@ function Footer() {
             <img src={logo} alt="My Logo" />
           </a>
         </div>
+      </div>
+      <div className="api-icon">
+        <a href="https://www.weatherapi.com/" title="Weather API">
+          <img
+            src="//cdn.weatherapi.com/v4/images/weatherapi_logo.png"
+            alt="Weather data by WeatherAPI.com"
+          />
+        </a>
       </div>
     </footer>
   );

@@ -6,7 +6,6 @@ export const fetchData = async (setState, setLoading, query) => {
   const data = await datas.json();
   setState(data);
   setLoading(true);
-  console.log(data);
 };
 
 export const searchData = async (setState, setLoading, query) => {
@@ -17,5 +16,4 @@ export const searchData = async (setState, setLoading, query) => {
   const data = await datas.json();
   setState(data);
   setLoading(true);
-  console.log(data);
 };

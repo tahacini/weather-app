@@ -8,7 +8,7 @@ import Background from "./Background.js";
 function App() {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(false);
-  const [city, setCity] = useState("Istanbul");
+  const [city, setCity] = useState("Ankara");
 
   useEffect(() => {
     fetchData(setData, setLoading, city);
