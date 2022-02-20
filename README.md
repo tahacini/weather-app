@@ -10,6 +10,8 @@
 
 ### To visit the live page, click the link below
 
-[Weather App](https://nowweathers.netlify.app/)
+# [Visit Page: Weather App](https://nowweathers.netlify.app/)
+
+<br />
 
 ![](./src/img/mobile.gif) ![](./src/img/pc.gif)
