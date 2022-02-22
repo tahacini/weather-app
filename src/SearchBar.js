@@ -13,7 +13,7 @@ function SearchBar({ setCity }) {
       if (query) {
         searchData(setData, setLoading, query);
       }
-    }, 500);
+    }, 200);
     return () => clearTimeout(timeout);
   }, [query]);
 

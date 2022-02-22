@@ -335,6 +335,10 @@ a {
   gap: 1rem;
 }
 
+.astro-info {
+  text-align: center;
+}
+
 .astro-info div + div {
   border-left: 2px solid black;
   padding-left: 0.5rem;
