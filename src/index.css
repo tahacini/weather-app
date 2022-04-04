@@ -13,7 +13,7 @@
   --fs-700: 3rem; /*48px*/
   --fs-800: 4rem; /*64px*/
   --fs-900: 4rem; /*128px*/
-  --ff-main: "Oswald", sans-serif;
+  --ff-main: 'Oswald', sans-serif;
   --clr-side-white: #fff;
   --clr-side-black: #222;
   --clr-primary-white: #fefefe;
@@ -199,8 +199,8 @@ a {
 }
 
 .fa-lg {
-  top: 14px;
-  left: 10px;
+  top: 20px;
+  left: 12px;
 }
 
 .result-container {
@@ -382,7 +382,7 @@ a {
 }
 
 .item::before {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   width: 3rem;
